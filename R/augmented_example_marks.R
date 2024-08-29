@@ -12,6 +12,7 @@
 #' \item{term}{Term of offering}
 #' \item{mark}{Mark for course NA for WNF etc.}
 #' \item{grade}{Grade}
+#' \item{raa}{RAA note}
 #' \item{N}{Number of exams with a mark for a student}
 #' \item{mean}{Mean exam mark}
 #' \item{diff}{Difference of mark from mean of all over marks for a given student}

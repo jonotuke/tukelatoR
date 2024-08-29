@@ -15,6 +15,7 @@ A data frame with 24,431 rows and 8 variables
 \item{term}{Term of offering}
 \item{mark}{Mark for course NA for WNF etc.}
 \item{grade}{Grade}
+\item{raa}{RAA note}
 }
 }
 \source{

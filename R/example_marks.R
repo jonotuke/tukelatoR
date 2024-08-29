@@ -12,6 +12,7 @@
 #' \item{term}{Term of offering}
 #' \item{mark}{Mark for course NA for WNF etc.}
 #' \item{grade}{Grade}
+#' \item{raa}{RAA note}
 #' }
 #' @source "Simulated data"
 "example_marks"

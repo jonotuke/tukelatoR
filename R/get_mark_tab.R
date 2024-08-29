@@ -1,5 +1,5 @@
 utils::globalVariables(
-  c(".data", ".env", "course_name", "n", "N", "p")
+  c(".data", ".env", "course_name", "n", "N", "p", "raa")
 )
 #' get_mark_tab
 #'
@@ -33,6 +33,7 @@ get_mark_tab <- function(augmented_mark_obj, course_id, term, year){
     Name = name,
     mark = mark,
     grade = grade,
+    raa = raa,
     mean = mean,
     diff = diff
   ) |>
@@ -72,3 +73,4 @@ get_mark_tab <- function(augmented_mark_obj, course_id, term, year){
 # pacman::p_load(conflicted, tidyverse, gt, DT)
 # conflicts_prefer(dplyr::filter)
 # get_mark_tab(augmented_example_marks, course_id = "STATS-3001", term = "Sem 1", 2016) |> print()
+# get_mark_tab(augmented_example_marks, course_id = "STATS-1234", term = "Sem 2", 2018) |> print()

@@ -5,13 +5,15 @@ pacman::p_load(randomNames, tidyverse)
 ## Files
 peoplesoft_2016_file <- fs::path_package("tukelatoR", "inst/extdata/peoplesoft/2016-peoplesoft.xlsx")
 peoplesoft_2017_file <- fs::path_package("tukelatoR", "inst/extdata/peoplesoft/2017-peoplesoft.xlsx")
+grade_roster_file <- fs::path_package("tukelatoR", "inst/extdata/grade-rosters/test-grade-roster.xlsx")
 
 ## Get mark object
 example_marks <- bind_rows(
   parse_peoplesoft(peoplesoft_2016_file),
-  parse_peoplesoft(peoplesoft_2017_file)
+  parse_peoplesoft(peoplesoft_2017_file), 
+  parse_grade_roster(grade_roster_file, 2018)
 )
-example_marks
+
 ## Get ids
 ids <- example_marks |> 
   select(id) |> 
@@ -38,6 +40,5 @@ example_marks <-
   left_join(names, by = "id") |> 
   select(-id, -name) |> 
   rename(id = sim_id, name = sim_name) |> 
-  select(id, name, course_id, course_name, year, term, mark, grade)
-
+  select(id, name, course_id, course_name, year, term, mark, grade, raa)
 usethis::use_data(example_marks, overwrite = TRUE)
