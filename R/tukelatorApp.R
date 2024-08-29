@@ -9,7 +9,10 @@
 #' @examples
 #' \dontrun{tukelatorApp(example_marks)}
 tukelatorApp <- function(mark_obj, term = "Sem 1"){
+  # Get latest year
   year <- max(mark_obj$year)
+  # Augment mark_obj
+  augmented_mark_obj <- augment_mark_obj(mark_obj)
   ui <- shiny::fluidPage(
     shiny::titlePanel("Tukelator"),
     shiny::sidebarLayout(
@@ -34,8 +37,8 @@ tukelatorApp <- function(mark_obj, term = "Sem 1"){
       ),
       shiny::mainPanel(
         shiny::tabsetPanel(
-          shiny::tabPanel("Grades",shiny::plotOutput("grade_bc")),
-          shiny::tabPanel("Marks"),
+          shiny::tabPanel("Grades",shiny::plotOutput("grade_bc"), gt::gt_output("grade_gt")),
+          shiny::tabPanel("Marks", DT::dataTableOutput("marks_dt")),
           shiny::tabPanel("Debugging")
         )
       )
@@ -46,6 +49,14 @@ tukelatorApp <- function(mark_obj, term = "Sem 1"){
     output$grade_bc <- shiny::renderPlot({
       shiny::req(input$course_id)
       plot_grade_bc(mark_obj, input$course_id, input$term)
+    })
+    output$grade_gt <- gt::render_gt({
+      shiny::req(input$course_id)
+      get_grade_tab(mark_obj, input$course_id, input$term)
+    })
+    output$marks_dt <- DT::renderDataTable({
+      shiny::req(input$course_id)
+      get_mark_tab(augmented_mark_obj, input$course_id, input$term, input$year)
     })
   }
   
