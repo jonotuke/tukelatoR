@@ -37,8 +37,22 @@ tukelatorApp <- function(mark_obj, term = "Sem 1"){
       ),
       shiny::mainPanel(
         shiny::tabsetPanel(
-          shiny::tabPanel("Grades",shiny::plotOutput("grade_bc"), gt::gt_output("grade_gt")),
-          shiny::tabPanel("Marks", DT::dataTableOutput("marks_dt")),
+          shiny::tabPanel(
+            "Grades",
+            shiny::plotOutput("grade_bc"), 
+            gt::gt_output("grade_gt")
+          ),
+          shiny::tabPanel(
+            "Marks", 
+            DT::dataTableOutput("marks_dt")
+          ),
+          shiny::tabPanel(
+            "Fail rate", 
+            shiny::plotOutput("fail_plot"), 
+            shiny::numericInput("MS", "Number of medical supps", value = 0),
+            shiny::sliderInput("ASPR","Expected academic pass rate",0, 1, 0.5, 0.1),
+            shiny::sliderInput("MSPR","Expected medical pass rate",0, 1, 0.8, 0.1)
+          ), 
           shiny::tabPanel("Debugging")
         )
       )
@@ -57,6 +71,14 @@ tukelatorApp <- function(mark_obj, term = "Sem 1"){
     output$marks_dt <- DT::renderDataTable({
       shiny::req(input$course_id)
       get_mark_tab(augmented_mark_obj, input$course_id, input$term, input$year)
+    })
+    output$fail_plot <- shiny::renderPlot({
+      shiny::req(input$course_id)
+      plot_fail_rate(
+        mark_obj, input$course_id, 
+        input$year, input$term, 
+        input$MS, input$MSPR, input$ASPR
+      )
     })
   }
   

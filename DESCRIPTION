@@ -26,6 +26,7 @@ Imports:
     janitor,
     readr,
     readxl,
+    scales,
     shiny,
     stringr,
     tidyr
