@@ -2,6 +2,7 @@
 
 export(augment_mark_obj)
 export(calc_grade)
+export(count_acad_supps)
 export(get_grade_tab)
 export(get_mark_tab)
 export(is_peoplesoft_valid)

@@ -49,6 +49,7 @@ tukelatorApp <- function(mark_obj, term = "Sem 1"){
           shiny::tabPanel(
             "Fail rate", 
             shiny::plotOutput("fail_plot"), 
+            shiny::htmlOutput("AS_text"),
             shiny::numericInput("MS", "Number of medical supps", value = 0),
             shiny::sliderInput("ASPR","Expected academic pass rate",0, 1, 0.5, 0.1),
             shiny::sliderInput("MSPR","Expected medical pass rate",0, 1, 0.8, 0.1)
@@ -80,6 +81,10 @@ tukelatorApp <- function(mark_obj, term = "Sem 1"){
         input$MS, input$MSPR, input$ASPR
       )
     })
+    output$AS_text <- shiny::renderText({
+      # shiny::req(input$course_id)
+      stringr::str_glue("<b>Number of academic supps: <br>{count_acad_supps(mark_obj, input$course_id, input$year, input$term)}<br>")
+    })
   }
   
   shiny::shinyApp(ui, server)
@@ -87,4 +92,4 @@ tukelatorApp <- function(mark_obj, term = "Sem 1"){
 }
 # pacman::p_load(conflicted, tidyverse, shiny)
 # library(tukelatoR)
-# tukelatorApp(example_marks) |> print()
+# tukelatorApp(example_marks, term = "Sem 2") |> print()
