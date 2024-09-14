@@ -29,7 +29,8 @@ Imports:
     scales,
     shiny,
     stringr,
-    tidyr
+    tidyr,
+    tidyselect
 Depends: 
     R (>= 2.10)
 LazyData: true
