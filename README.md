@@ -23,13 +23,4 @@ devtools::install_github("jonotuke/tukelatoR")
 
 ## Data
 
-There are three main data sources for the Tukelator:
-
-- peoplesoft data,
-- grade-rosters, and
-- grade-books.
-
-For each of these is a function that will parse these into the correct
-form that is needed for the Tukelator app. The form need is a
-rectangular dataset with one row for each mark. The variables recorded
-are
+For the data structures used by `tukelatoR` see `vignette("data")`

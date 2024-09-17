@@ -1,28 +1,64 @@
 utils::globalVariables(
-  c("section", "term_course", "displ")
+  c("student","section", "unposted_final_score", 
+  "unposted_final_grade", "Student", "sis_user_id"
 )
-parse_gradebook <- function(file){
-  gb <- file |> 
-  readr::read_csv() |> 
-  janitor::clean_names()
-  # term and course_id
-  gb <- 
-  gb |> 
-  dplyr::mutate(
-    term_course = stringr::str_extract(
-      section, "\\d{4}_.*?_\\d{4}"
+)
+#' parse gradebook
+#'
+#' @param file gradebook CSV
+#' @param year year of offering
+#'
+#' @return mark-object
+#' @export
+parse_gradebook <- function(file, year){
+  df <- readr::read_csv(file, show_col_types = FALSE)
+  
+  # First row is sometimes about manual posting so remove
+  df <- df |> dplyr::filter(!is.na(Student))
+  
+  # Remove test student
+  df <- df |> dplyr::filter(Student != "student, Test")
+
+  # Remove points possible row
+  df <- df |> dplyr::filter(Student != "Points Possible")
+  
+  # Clean column names
+  df <- df |> dplyr::rename_with(.fn = clean_names)
+  df <- df |> janitor::clean_names()
+
+  # Select columns
+  df <- df |> 
+    dplyr::select(
+      id = sis_user_id, name = student, 
+    section, 
+    mark = unposted_final_score, 
+    grade = unposted_final_grade)
+    # add term
+    df <- df |> 
+      dplyr::mutate(
+    term = parse_section(section, "term")
     )
-  ) |> 
-  tidyr::separate(term_course, into = c("term", "displ", "catalog")) |> 
-  dplyr::mutate(
-    course_id = stringr::str_glue("{displ}-{catalog}")
-  ) |> 
-  dplyr::select(
-    -displ, 
-    -catalog
-  )
+    
+    # add year
+    df <- df |> 
+      dplyr::mutate(
+    year = year
+    )
+    # course id
+    df <- df |> 
+      dplyr::mutate(
+    course_id = parse_section(section, "course_id")
+    )
+  
+    df <- df |> 
+      dplyr::mutate(
+        mark = deal_ex(mark), 
+        mark = round(mark)
+      )
+  return(df)
+
 }
-# Use clean-gradebook from Pearson
-# pacman::p_load(conflicted, tidyverse, targets)
-# parse_gradebook("inst/extdata/grade-book/2023-ds.csv") |> 
-# print()
+# pacman::p_load(tidyverse, targets)
+# parse_gradebook("inst/extdata/grade-book/2023-ds.csv", 2023) |> 
+#   glimpse()
+

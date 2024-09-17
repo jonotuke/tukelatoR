@@ -1,0 +1,53 @@
+---
+title: "Using rclone"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Using rclone}
+  %\VignetteEngine{quarto::html}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(tukelatoR)
+```
+
+
+# Rclone
+
+To get the files from the Box folder, I use rclone
+
+## Installing rclone
+
+1. Download binary from <https://rclone.org/downloads/>
+2. Move to bin
+```{bash}
+#| eval: false
+sudo mv rclone /usr/local/bin
+```
+
+## Setting up rclone
+
+Run
+
+```{bash}
+#| eval: false
+rclone config
+```
+
+Create a new link, most choose default, do not need to add ID etc. I did set up a password by account settings in Box - not sure if needed. Also choose use Web interface to login. 
+
+
+## Using rclone
+
+```{bash}
+#| eval: false
+rclone copy -P Box-folder:Maths_Grade_Rosters_For_Meetings_2023S1 \ 
+raw-data/grade-rosters/2023S1-grade-rosters
+```

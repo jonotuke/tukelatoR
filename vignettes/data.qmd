@@ -18,14 +18,14 @@ knitr::opts_chunk$set(
 library(tukelatoR)
 ```
 
-# Marks object
-The marks object is the main tibble type for the Tukelator app. 
+# mark-object form
+The mark-object form is the main tibble type for the Tukelator app. 
 
 Each row is a mark, and the following columns are needed: 
 
 - `id`: the student ID, 
 - `name`: the student name, 
-- `course_id`: the course code of the form `discipline-catalog_number`, 
+- `course_id`: the course code of the form `DISPLINE-CAT_NO`, 
 - `course_name`: course name, 
 - `year`: year of offering, 
 - `term`: term of offering, in the form of `Sem 1` etc, 
@@ -37,3 +37,24 @@ Each row is a mark, and the following columns are needed:
 ```{r}
 head(example_marks)
 ```
+
+# Getting the data
+To get data into the correct form, we have a collection of functions to parse the various data forms: 
+
+- `parse_peoplesoft()` will convert the downloaded peoplesoft data (See @sec-peoplesoft-download) into a mark-obj tibble. 
+
+
+
+
+## Downloading the Peoplesoft data. {#sec-peoplesoft-download}
+To obtain the data from Peoplesoft, you perform the following:
+
+1.  Go to [Peoplesoft](https://campus.adelaide.edu.au/psc/cs92prd/EMPLOYEE/SA/c/NUI_FRAMEWORK.PT_LANDINGPAGE.GBL?). Note that you will need to VPN in if you are using this from outside the Uni.
+2.  Click on `enrolment`.
+3.  Click on query and query viewer (left-side down the bottom).
+4.  Use query `EX_AC_GRP_RES_W_PLN`
+5.  Choose `Run to Excel`.
+6.  Enter the fields as given in the Figure: Entry fields for Peoplesoft.
+![Parameters to enter in Peoplesoft for the exam marks](peoplesoft_params.png)
+Save this file into the folder raw data in the peoplesoft folder with correct year name. 
+
