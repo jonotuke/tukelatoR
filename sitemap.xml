@@ -3,12 +3,12 @@
 <url><loc>https://jonotuke.github.io/tukelatoR/LICENSE.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/articles/data.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/articles/index.html</loc></url>
+<url><loc>https://jonotuke.github.io/tukelatoR/articles/rclone.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/authors.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/index.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/augment_mark_obj.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/augmented_example_marks.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/calc_grade.html</loc></url>
-<url><loc>https://jonotuke.github.io/tukelatoR/reference/clean_gradebook.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/clean_names.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/count_acad_supps.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/deal_ex.html</loc></url>
@@ -19,6 +19,7 @@
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/is_peoplesoft_valid.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/order_grade.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/parse_grade_roster.html</loc></url>
+<url><loc>https://jonotuke.github.io/tukelatoR/reference/parse_gradebook.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/parse_peoplesoft.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/parse_section.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/plot_fail_rate.html</loc></url>
