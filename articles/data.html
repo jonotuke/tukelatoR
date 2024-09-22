@@ -98,28 +98,30 @@
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">example_marks</span><span class="op">)</span></span>
-<span><span class="co">#&gt;        id               name  course_id     course_name year  term mark grade</span></span>
-<span><span class="co">#&gt; 1 8987019      Bolton, Molly MATHS-3015 Comm Skills III 2016 Sem 2   79     D</span></span>
-<span><span class="co">#&gt; 2 8387540     Iranfar, Tyree MATHS-3015 Comm Skills III 2016 Sem 2   86    HD</span></span>
-<span><span class="co">#&gt; 3 1939740 Schuettpelz, Sarah MATHS-3015 Comm Skills III 2016 Sem 2   77     D</span></span>
-<span><span class="co">#&gt; 4 6370923  Sandoval, Araceli MATHS-3015 Comm Skills III 2016 Sem 2   90    HD</span></span>
-<span><span class="co">#&gt; 5 4795219      Long, Jessica MATHS-3015 Comm Skills III 2016 Sem 2   65     C</span></span>
-<span><span class="co">#&gt; 6 4107044    Dilisio, Lauren MATHS-3015 Comm Skills III 2016 Sem 2   58     P</span></span>
-<span><span class="co">#&gt;    raa</span></span>
-<span><span class="co">#&gt; 1 &lt;NA&gt;</span></span>
-<span><span class="co">#&gt; 2 &lt;NA&gt;</span></span>
-<span><span class="co">#&gt; 3 &lt;NA&gt;</span></span>
-<span><span class="co">#&gt; 4 &lt;NA&gt;</span></span>
-<span><span class="co">#&gt; 5 &lt;NA&gt;</span></span>
-<span><span class="co">#&gt; 6 &lt;NA&gt;</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">mark_obj</span><span class="op">)</span></span>
+<span><span class="co">#&gt;        id              name  course_id     course_name year  term mark grade</span></span>
+<span><span class="co">#&gt; 1 3798786  Jarrett, Jasmine MATHS-3015 Comm Skills III 2016 Sem 2   79     D</span></span>
+<span><span class="co">#&gt; 2 4476745  al-Qasim, Azzaam MATHS-3015 Comm Skills III 2016 Sem 2   86    HD</span></span>
+<span><span class="co">#&gt; 3 7242597 Denzmore, Keysean MATHS-3015 Comm Skills III 2016 Sem 2   77     D</span></span>
+<span><span class="co">#&gt; 4 8804412  Guerrero, Julian MATHS-3015 Comm Skills III 2016 Sem 2   90    HD</span></span>
+<span><span class="co">#&gt; 5 0664858   Deherrera, Kyle MATHS-3015 Comm Skills III 2016 Sem 2   65     C</span></span>
+<span><span class="co">#&gt; 6 6843453    Scott, Breanna MATHS-3015 Comm Skills III 2016 Sem 2   58     P</span></span>
+<span><span class="co">#&gt;    raa     source</span></span>
+<span><span class="co">#&gt; 1 &lt;NA&gt; peoplesoft</span></span>
+<span><span class="co">#&gt; 2 &lt;NA&gt; peoplesoft</span></span>
+<span><span class="co">#&gt; 3 &lt;NA&gt; peoplesoft</span></span>
+<span><span class="co">#&gt; 4 &lt;NA&gt; peoplesoft</span></span>
+<span><span class="co">#&gt; 5 &lt;NA&gt; peoplesoft</span></span>
+<span><span class="co">#&gt; 6 &lt;NA&gt; peoplesoft</span></span></code></pre></div>
 </div>
+</section><section class="section level2"><h2 id="augmented-mark-object">augmented-mark-object<a class="anchor" aria-label="anchor" href="#augmented-mark-object"></a>
+</h2>
 </section><section class="section level2"><h2 id="getting-the-data">Getting the data<a class="anchor" aria-label="anchor" href="#getting-the-data"></a>
 </h2>
 <p>To get data into the correct form, we have a collection of functions to parse the various data forms:</p>
 <ul>
 <li>
-<code><a href="../reference/parse_peoplesoft.html">parse_peoplesoft()</a></code> will convert the downloaded peoplesoft data (See <a href="#sec-peoplesoft-download" class="quarto-xref">Section 2.1</a>) into a mark-obj tibble.</li>
+<code><a href="../reference/parse_peoplesoft.html">parse_peoplesoft()</a></code> will convert the downloaded peoplesoft data (See <a href="#sec-peoplesoft-download" class="quarto-xref">Section 3.1</a>) into a mark-obj tibble.</li>
 </ul>
 <section class="level2"><h3 id="sec-peoplesoft-download">Downloading the Peoplesoft data.<a class="anchor" aria-label="anchor" href="#sec-peoplesoft-download"></a>
 </h3>
@@ -242,7 +244,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
     </footer>

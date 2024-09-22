@@ -61,22 +61,22 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">augment_mark_obj</span><span class="op">(</span><span class="va">example_marks</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 24,446 × 12</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    id      name  course_id course_name  year term   mark grade raa       N  mean</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;glue&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 8987019 Bolt… MATHS-30… Comm Skill…  <span style="text-decoration: underline;">2</span>016 Sem 2    79 D     <span style="color: #BB0000;">NA</span>        9  71.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 8387540 Iran… MATHS-30… Comm Skill…  <span style="text-decoration: underline;">2</span>016 Sem 2    86 HD    <span style="color: #BB0000;">NA</span>        4  74.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 1939740 Schu… MATHS-30… Comm Skill…  <span style="text-decoration: underline;">2</span>016 Sem 2    77 D     <span style="color: #BB0000;">NA</span>        9  61  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 6370923 Sand… MATHS-30… Comm Skill…  <span style="text-decoration: underline;">2</span>016 Sem 2    90 HD    <span style="color: #BB0000;">NA</span>       12  90.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 4795219 Long… MATHS-30… Comm Skill…  <span style="text-decoration: underline;">2</span>016 Sem 2    65 C     <span style="color: #BB0000;">NA</span>       11  47.6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 4107044 Dili… MATHS-30… Comm Skill…  <span style="text-decoration: underline;">2</span>016 Sem 2    58 P     <span style="color: #BB0000;">NA</span>        4  38.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 5387980 Mitc… MATHS-30… Comm Skill…  <span style="text-decoration: underline;">2</span>016 Sem 2    <span style="color: #BB0000;">NA</span> WNF   <span style="color: #BB0000;">NA</span>       11  54.3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 3200260 Bald… MATHS-30… Comm Skill…  <span style="text-decoration: underline;">2</span>016 Sem 2    61 P     <span style="color: #BB0000;">NA</span>       16  53.6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 0449948 Walk… MATHS-30… Comm Skill…  <span style="text-decoration: underline;">2</span>016 Sem 2    78 D     <span style="color: #BB0000;">NA</span>       14  76.2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 1346648 el-M… MATHS-30… Comm Skill…  <span style="text-decoration: underline;">2</span>016 Sem 2    71 C     <span style="color: #BB0000;">NA</span>        4  53  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 24,436 more rows</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 1 more variable: diff &lt;dbl&gt;</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">augment_mark_obj</span><span class="op">(</span><span class="va">mark_obj</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 24,510 × 13</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    id     name  course_id course_name  year term   mark grade raa   source     N</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;glue&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 37987… Jarr… MATHS-30… Comm Skill…  <span style="text-decoration: underline;">2</span>016 Sem 2    79 D     <span style="color: #BB0000;">NA</span>    peopl…     9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 44767… al-Q… MATHS-30… Comm Skill…  <span style="text-decoration: underline;">2</span>016 Sem 2    86 HD    <span style="color: #BB0000;">NA</span>    peopl…     4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 72425… Denz… MATHS-30… Comm Skill…  <span style="text-decoration: underline;">2</span>016 Sem 2    77 D     <span style="color: #BB0000;">NA</span>    peopl…     9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 88044… Guer… MATHS-30… Comm Skill…  <span style="text-decoration: underline;">2</span>016 Sem 2    90 HD    <span style="color: #BB0000;">NA</span>    peopl…    12</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 06648… Dehe… MATHS-30… Comm Skill…  <span style="text-decoration: underline;">2</span>016 Sem 2    65 C     <span style="color: #BB0000;">NA</span>    peopl…    11</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 68434… Scot… MATHS-30… Comm Skill…  <span style="text-decoration: underline;">2</span>016 Sem 2    58 P     <span style="color: #BB0000;">NA</span>    peopl…     4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 05750… al-N… MATHS-30… Comm Skill…  <span style="text-decoration: underline;">2</span>016 Sem 2    <span style="color: #BB0000;">NA</span> WNF   <span style="color: #BB0000;">NA</span>    peopl…    11</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 68908… al-A… MATHS-30… Comm Skill…  <span style="text-decoration: underline;">2</span>016 Sem 2    61 P     <span style="color: #BB0000;">NA</span>    peopl…    16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 73853… Fobe… MATHS-30… Comm Skill…  <span style="text-decoration: underline;">2</span>016 Sem 2    78 D     <span style="color: #BB0000;">NA</span>    peopl…    14</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 62568… Kill… MATHS-30… Comm Skill…  <span style="text-decoration: underline;">2</span>016 Sem 2    71 C     <span style="color: #BB0000;">NA</span>    peopl…     4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 24,500 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 2 more variables: mean &lt;dbl&gt;, diff &lt;dbl&gt;</span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
@@ -88,7 +88,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
     </footer></div>
