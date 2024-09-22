@@ -16,5 +16,5 @@ augmented-mark-obj
 augment_mark_obj
 }
 \examples{
-augment_mark_obj(example_marks)
+augment_mark_obj(mark_obj)
 }

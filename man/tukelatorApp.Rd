@@ -4,10 +4,12 @@
 \alias{tukelatorApp}
 \title{tukelator app}
 \usage{
-tukelatorApp(mark_obj, term = "Sem 1")
+tukelatorApp(mark_obj, assessment_obj, term = "Sem 1")
 }
 \arguments{
 \item{mark_obj}{mark object tibble}
+
+\item{assessment_obj}{assessment object tibble}
 
 \item{term}{selected term}
 }

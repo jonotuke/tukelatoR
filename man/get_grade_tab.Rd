@@ -20,5 +20,5 @@ gt-table
 Gives a table of grades
 }
 \examples{
-get_grade_tab(example_marks, course_id = "STATS-3001", term = "Sem 1")
+get_grade_tab(mark_obj, course_id = "STATS-3001", term = "Sem 1")
 }

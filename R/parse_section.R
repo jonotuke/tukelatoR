@@ -16,7 +16,8 @@
 #' parse_section(section, "course_id")
 parse_section <- function(x, which = "term"){
   term <- stringr::str_match(x, "(\\d{4})_(.*?_\\d{4})")[, 2]
-  course_id <- stringr::str_match(x, "(\\d{4})_(.*?_\\d{4})")[, 3]
+  course_id <- stringr::str_match(x, "(\\d{4})_(.*?_\\d{4})")[, 3] |> 
+    stringr::str_replace_all("_", "-")
   if(which == "term"){
     return(term)
   } else {

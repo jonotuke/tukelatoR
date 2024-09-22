@@ -6,7 +6,7 @@
 #' @export
 #'
 #' @examples
-#' augment_mark_obj(example_marks)
+#' augment_mark_obj(mark_obj)
 augment_mark_obj <- function(mark_obj){
   df <- mark_obj |> 
   dplyr::mutate(

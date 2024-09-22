@@ -31,9 +31,8 @@ parse_peoplesoft <- function(file){
   ) |> 
   dplyr::select(-subject, -catalog) |> 
   dplyr::distinct() |> 
-  dplyr::left_join(term_codes, by = "term") |> 
-  dplyr::select(-term) |> 
-  dplyr::rename(name = name.x, term = name.y)
+    dplyr::mutate(term = convert_term(term)) |> 
+    dplyr::mutate(source = "peoplesoft")
 }
 # pacman::p_load(conflicted, tidyverse, targets)
 # parse_peoplesoft("inst/extdata/peoplesoft/2016-peoplesoft.xlsx") |> glimpse()

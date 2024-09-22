@@ -13,8 +13,8 @@ utils::globalVariables(
 #' @export
 #'
 #' @examples
-#' plot_grade_bc(example_marks, course_id = "STATS-3001", term = "Sem 1")
-#' plot_grade_bc(example_marks, course_id = c("STATS-3001", "STATS-3006"), term = "Sem 1")
+#' plot_grade_bc(mark_obj, course_id = "STATS-3001", term = "Sem 1")
+#' plot_grade_bc(mark_obj, course_id = c("STATS-3001", "STATS-3006"), term = "Sem 1")
 plot_grade_bc <- function(mark_obj, course_id, term, all_grades = FALSE){
   df <- mark_obj |>
   dplyr::filter(.data$course_id %in% .env$course_id) |>

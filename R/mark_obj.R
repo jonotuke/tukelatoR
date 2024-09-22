@@ -1,8 +1,8 @@
-#' augmented_example_marks
+#' mark_obj
 #'
 #' A simulated tibble showing the standard mark-object form
 #'
-#' @format A data frame with 24,431 rows and 11 variables
+#' @format A data frame with 24,431 rows and 8 variables
 #' \describe{
 #' \item{id}{Student ID}
 #' \item{name}{Student Name}
@@ -13,9 +13,7 @@
 #' \item{mark}{Mark for course NA for WNF etc.}
 #' \item{grade}{Grade}
 #' \item{raa}{RAA note}
-#' \item{N}{Number of exams with a mark for a student}
-#' \item{mean}{Mean exam mark}
-#' \item{diff}{Difference of mark from mean of all over marks for a given student}
+#' \item{source}{where the data comes from: peoplesoft, GR, etc}
 #' }
 #' @source "Simulated data"
-"augmented_example_marks"
+"mark_obj"

@@ -4,14 +4,14 @@ utils::globalVariables(
     "middle_name", "mark_grade_input", "transcript_note_id"
   )
 )
-#' parse_grade_roster
+#' parse_graderoster
 #'
 #' @param filename CSV or XLSX grade-roster
 #' @param year year of offering
 #'
 #' @return mark-obj
 #' @export
-parse_grade_roster <- function(filename, year){
+parse_graderoster <- function(filename, year){
   # Export filename for debugging
   cat("Filename: ", filename, "\n\n")
   # Find if XLSX or CSV
@@ -70,14 +70,17 @@ parse_grade_roster <- function(filename, year){
   )
   # Add term
   marks <- marks |> 
-  dplyr::left_join(term_codes, by = "term") |> 
-  dplyr::select(-term)
+    dplyr::mutate(term = convert_term(term))
+  # Clean columns
   marks <- marks |> 
-  dplyr::select(id, name = name.x, term = name.y, course_id, year, mark, grade, raa = transcript_note_id)
+  dplyr::select(id, name = name, course_id, year, term, mark, grade, raa = transcript_note_id)
+  # Add source
+  marks <- marks |> 
+    dplyr::mutate(source = "graderoster")
   marks
 }
 # pacman::p_load(tidyverse, targets)
 # xlsx_file <- "inst/extdata/grade-rosters/test-grade-roster.xlsx"
 # csv_file <- "inst/extdata/grade-rosters/test-grade-roster.csv"
-# parse_grade_roster(xlsx_file, 2024) |> print()
-# parse_grade_roster(csv_file, 2024) |> print()
+# parse_graderoster(xlsx_file, 2024) |> print()
+# parse_graderoster(csv_file, 2024) |> print()

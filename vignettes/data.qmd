@@ -35,8 +35,10 @@ Each row is a mark, and the following columns are needed:
 
 
 ```{r}
-head(example_marks)
+head(mark_obj)
 ```
+
+# augmented-mark-object
 
 # Getting the data
 To get data into the correct form, we have a collection of functions to parse the various data forms: 

@@ -22,6 +22,6 @@ bar-chart
 Plots a bar-chart of grades for mark-obj
 }
 \examples{
-plot_grade_bc(example_marks, course_id = "STATS-3001", term = "Sem 1")
-plot_grade_bc(example_marks, course_id = c("STATS-3001", "STATS-3006"), term = "Sem 1")
+plot_grade_bc(mark_obj, course_id = "STATS-3001", term = "Sem 1")
+plot_grade_bc(mark_obj, course_id = c("STATS-3001", "STATS-3006"), term = "Sem 1")
 }

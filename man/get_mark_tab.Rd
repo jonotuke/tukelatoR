@@ -22,5 +22,5 @@ DT-obj
 Gives a table of marks
 }
 \examples{
-get_mark_tab(augmented_example_marks, course_id = "STATS-3001", term = "Sem 1", 2016)
+get_mark_tab(augmented_mark_obj, course_id = "STATS-3001", term = "Sem 1", 2016)
 }
