@@ -6,6 +6,7 @@
 <url><loc>https://jonotuke.github.io/tukelatoR/articles/rclone.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/authors.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/index.html</loc></url>
+<url><loc>https://jonotuke.github.io/tukelatoR/reference/add_example.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/assessment_obj.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/augment_mark_obj.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/augmented_mark_obj.html</loc></url>
@@ -22,11 +23,15 @@
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/is_outlier.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/is_peoplesoft_valid.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/mark_obj.html</loc></url>
+<url><loc>https://jonotuke.github.io/tukelatoR/reference/move_example.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/order_grade.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/parse_gradebook.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/parse_gradebook_ao.html</loc></url>
+<url><loc>https://jonotuke.github.io/tukelatoR/reference/parse_gradebook_folder.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/parse_graderoster.html</loc></url>
+<url><loc>https://jonotuke.github.io/tukelatoR/reference/parse_graderoster_folder.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/parse_peoplesoft.html</loc></url>
+<url><loc>https://jonotuke.github.io/tukelatoR/reference/parse_peoplesoft_folder.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/parse_section.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/plot_assessment_bp.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/plot_assessment_lg.html</loc></url>
