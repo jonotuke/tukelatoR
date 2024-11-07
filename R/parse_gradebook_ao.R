@@ -93,6 +93,7 @@ parse_gradebook_ao <- function(file, year){
   # Add prop
   df <- df |> 
     dplyr::mutate(p = value / total)
+  df
 }
 # pacman::p_load(conflicted, tidyverse, targets)
 # parse_gradebook_ao("inst/extdata/grade-book/2023-ds.csv", 2023) |> print()

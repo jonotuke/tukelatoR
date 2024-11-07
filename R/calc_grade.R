@@ -14,6 +14,7 @@ calc_grade <- function(x){
     y <- readr::parse_integer(x, na = c("CN", "F", "FNS", "NFE", "RP", "WF", "WNF"))
   } else {
     y <- x
+    x <- as.character(x)
   }
   grade <- dplyr::case_when(
     x == "WNF" ~ "WNF",
@@ -51,3 +52,4 @@ calc_grade <- function(x){
 # ggplot(aes(number, grade)) + 
 # geom_point() 
 # df
+# calc_grade(c("RP", 1:10))
