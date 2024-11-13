@@ -15,9 +15,11 @@
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/convert_term.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/count_acad_supps.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/deal_ex.html</loc></url>
+<url><loc>https://jonotuke.github.io/tukelatoR/reference/fill_graderoster.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/filter_assessment.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/get_assessment_list.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/get_grade_tab.html</loc></url>
+<url><loc>https://jonotuke.github.io/tukelatoR/reference/get_graderoster_course_id.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/get_mark_tab.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/index.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/is_outlier.html</loc></url>
@@ -33,11 +35,14 @@
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/parse_peoplesoft.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/parse_peoplesoft_folder.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/parse_section.html</loc></url>
+<url><loc>https://jonotuke.github.io/tukelatoR/reference/parse_xlsx.html</loc></url>
+<url><loc>https://jonotuke.github.io/tukelatoR/reference/parse_xlsx_folder.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/plot_assessment_bp.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/plot_assessment_lg.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/plot_fail_rate.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/plot_grade_bc.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/predict_fail_rate.html</loc></url>
+<url><loc>https://jonotuke.github.io/tukelatoR/reference/tab_course_names.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/term_codes.html</loc></url>
 <url><loc>https://jonotuke.github.io/tukelatoR/reference/tukelatorApp.html</loc></url>
 </urlset>
