@@ -9,6 +9,7 @@ add_example <- function(folder, type){
   file <- dplyr::case_when(
     type == "GR" ~ "grade-roster-example.xlsx", 
     type == "GB" ~ "grade-book-example.csv", 
+    type == "XL" ~ "xlsx-example.xlsx",
     TRUE ~ NA
   )
   move_example(folder, file)
