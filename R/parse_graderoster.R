@@ -19,15 +19,16 @@ parse_graderoster <- function(filename, year) {
   # Read in data
   false_names <- stringr::str_c("X", 1:12)
   if (EXT == "XLSX") {
-    df <- readxl::read_excel(filename, na = "NA", col_names = false_names)
+    suppressMessages(df <- readxl::read_excel(filename, na = "NA"))
   } else {
-    df <- readr::read_csv(filename, col_names = false_names, show_col_types = FALSE)
+    df <- readr::read_csv(filename, show_col_types = FALSE)
   }
+  colnames(df) <- stringr::str_c("X", 1:ncol(df))
   # Find position of first line of marks
   index <- which(df[, 1] == "EmplID")
   # Read in marks
   if (EXT == "XLSX") {
-    marks <- readxl::read_excel(filename, skip = index - 1)
+    suppressMessages(marks <- readxl::read_excel(filename, skip = index))
   } else {
     marks <- readr::read_csv(filename, skip = index - 1, show_col_types = FALSE)
   }
@@ -80,11 +81,13 @@ parse_graderoster <- function(filename, year) {
   # Add source
   marks <- marks |>
     dplyr::mutate(source = "graderoster")
+  # Clean course ids
+  marks <- marks |>
+    dplyr::mutate(
+      course_id = stringr::str_replace(course_id, "COMP-SCI ", "COMP SCI-")
+    )
   marks
 }
 # pacman::p_load(tidyverse, targets)
-# xlsx_file <- "inst/extdata/grade-rosters/test-grade-roster.xlsx"
-# csv_file <- "inst/extdata/grade-rosters/test-grade-roster.csv"
-# parse_graderoster(xlsx_file, 2024) |> print()
-# parse_graderoster(csv_file, 2024) |> print()
-# parse_graderoster("inst/extdata/grade-rosters/COMP_SCI_7101B_4436_FIN.csv", 2024) |> print()
+# file <- "~/Dropbox/01-projects/2024-exam-marks/raw-data/graderosters/2024-s2/COMP SCI 7201_4420_FIN.xlsx"
+# parse_graderoster(file, 2024) |> print()

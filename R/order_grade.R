@@ -11,7 +11,7 @@ order_grade <- function(x){
       "Unknown", "NFE", "RP","NGP",
       "PNG", "WF", "WNF",
       "FNS", "F", "P",
-      "C", "D", "HD"
+      "C", "D", "HD", "2A", "2B", "1ST"
     )
   )
   return(grade)

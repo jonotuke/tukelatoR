@@ -8,18 +8,23 @@ utils::globalVariables(
 #' @param course_id course-id
 #' @param term term
 #' @param year year of offering
+#' @param hurdle show only 49s
 #'
 #' @return DT-obj
 #' @export
 #'
 #' @examples
-#' get_mark_tab(augmented_mark_obj, course_id = "STATS-3001", term = "Sem 1", 2016)
-get_mark_tab <- function(augmented_mark_obj, course_id, term, year){
+#' get_mark_tab(augmented_mark_obj, course_id = "DISCP-3001", term = "Sem 1", 2022)
+get_mark_tab <- function(augmented_mark_obj, course_id, term, year, hurdle = FALSE){
   df <-
   augmented_mark_obj |>
   dplyr::filter(.data$course_id %in% .env$course_id) |>
   dplyr::filter(.data$year %in% .env$year) |>
   dplyr::filter(.data$term %in% .env$term)
+  if(hurdle){
+    df <- df |> 
+      dplyr::filter(mark == 49)
+  }
   # Set up colours for table
   col_back <- c(
     "#832424", "#C89089",
@@ -70,7 +75,3 @@ get_mark_tab <- function(augmented_mark_obj, course_id, term, year){
     color = "white"
   )
 }
-# pacman::p_load(conflicted, tidyverse, gt, DT)
-# conflicts_prefer(dplyr::filter)
-# get_mark_tab(augmented_example_marks, course_id = "STATS-3001", term = "Sem 1", 2016) |> print()
-# get_mark_tab(augmented_example_marks, course_id = "STATS-1234", term = "Sem 2", 2018) |> print()

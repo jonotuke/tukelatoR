@@ -7,8 +7,8 @@
 #' @export
 #'
 #' @examples
-#' assessment_obj <- assessment_obj |> filter_assessment("STATS-3022", 2023, "Sem 2")
-#' AL <- assessment_obj |> get_assessment_list()
+#' assessment_obj <- assessment_obj |> filter_assessment("DISCP-1234", 2024, "Sem 1")
+#' AL <- assessment_obj |> get_assessment_list() 
 #' plot_assessment_lg(assessment_obj, AL)
 plot_assessment_lg <- function(assessment_obj, assessment_list){
   assessment_obj |> 

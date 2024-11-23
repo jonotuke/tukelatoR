@@ -26,6 +26,7 @@ Imports:
     harrypotter,
     janitor,
     purrr,
+    randomNames,
     readr,
     readxl,
     scales,

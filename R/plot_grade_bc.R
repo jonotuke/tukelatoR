@@ -13,8 +13,8 @@ utils::globalVariables(
 #' @export
 #'
 #' @examples
-#' plot_grade_bc(mark_obj, course_id = "STATS-3001", term = "Sem 1")
-#' plot_grade_bc(mark_obj, course_id = c("STATS-3001", "STATS-3006"), term = "Sem 1")
+#' plot_grade_bc(mark_obj, course_id = "DISCP-1001", term = "Sem 1")
+#' plot_grade_bc(mark_obj, course_id = c("DISCP-1001", "DISCP-2001"), term = "Sem 1")
 plot_grade_bc <- function(mark_obj, course_id, term, all_grades = FALSE){
   df <- mark_obj |>
   dplyr::filter(.data$course_id %in% .env$course_id) |>
@@ -51,10 +51,16 @@ plot_grade_bc <- function(mark_obj, course_id, term, all_grades = FALSE){
       ) + 
       ggplot2::theme_bw()
 }
-# pacman::p_load(tidyverse, targets)
+# pacman::p_load(conflicted, tidyverse, targets)
 # conflicts_prefer(dplyr::filter)
 # library(tukelatoR)
-# example_marks
-# plot_grade_bc(example_marks, course_id = "STATS-3001", term = "Sem 1")
-# plot_grade_bc(example_marks, course_id = c("STATS-3001", "STATS-3006"), term = "Sem 1")
-
+# mark_obj
+# plot_grade_bc(mark_obj, course_id = "STATS-3001", term = "Sem 1")
+# plot_grade_bc(mark_obj, course_id = c("STATS-3001", "STATS-3006"), term = "Sem 1")
+# cs7211_file <- "~/Dropbox/01-projects/2024-exam-marks/raw-data/graderosters/2024-s2/COMP SCI 7211_4420_FIN.xlsx"
+# cs7211 <- parse_graderoster(cs7211_file, 2024)
+# cs7211 <- cs7211 |> 
+#   mutate(
+#     course_name = "TEST"
+#   )
+# plot_grade_bc(cs7211, course_id = "COMP SCI-7211", term = "Sem 2", all_grades = TRUE)

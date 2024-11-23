@@ -9,3 +9,4 @@
 ^inst/extdata$
 ^data-raw$
 tukelatoR.code-workspace
+vignettes/.quarto

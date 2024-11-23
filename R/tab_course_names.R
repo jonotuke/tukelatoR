@@ -10,7 +10,8 @@ tab_course_names <- function(mark_obj){
     dplyr::distinct() |> 
     dplyr::filter(!is.na(course_name)) |> 
     dplyr::group_by(course_id) |> 
-    dplyr::filter(year == max(year))
+    dplyr::filter(year == max(year)) |> 
+    dplyr::select(-year)
 }
 # pacman::p_load(conflicted, tidyverse, targets)
 # data(mark_obj)

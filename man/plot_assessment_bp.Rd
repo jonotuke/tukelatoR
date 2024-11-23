@@ -18,7 +18,7 @@ plot of marks
 plot assessment box-plot
 }
 \examples{
-assessment_obj <- assessment_obj |> filter_assessment("STATS-3022", 2023, "Sem 2")
+assessment_obj <- assessment_obj |> filter_assessment("DISCP-1234", 2024, "Sem 1")
 AL <- assessment_obj |> get_assessment_list() 
 plot_assessment_bp(assessment_obj, AL)
 }

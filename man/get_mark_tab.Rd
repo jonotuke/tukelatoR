@@ -4,7 +4,7 @@
 \alias{get_mark_tab}
 \title{get_mark_tab}
 \usage{
-get_mark_tab(augmented_mark_obj, course_id, term, year)
+get_mark_tab(augmented_mark_obj, course_id, term, year, hurdle = FALSE)
 }
 \arguments{
 \item{augmented_mark_obj}{augmented-mark-obj}
@@ -14,6 +14,8 @@ get_mark_tab(augmented_mark_obj, course_id, term, year)
 \item{term}{term}
 
 \item{year}{year of offering}
+
+\item{hurdle}{show only 49s}
 }
 \value{
 DT-obj
@@ -22,5 +24,5 @@ DT-obj
 Gives a table of marks
 }
 \examples{
-get_mark_tab(augmented_mark_obj, course_id = "STATS-3001", term = "Sem 1", 2016)
+get_mark_tab(augmented_mark_obj, course_id = "DISCP-3001", term = "Sem 1", 2022)
 }
