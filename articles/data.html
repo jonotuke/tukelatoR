@@ -8,8 +8,8 @@
 <title>Data objects for Tukelator • tukelatoR</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
-<link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><script src="data_files/libs/quarto-html/popper.min.js"></script><script src="data_files/libs/quarto-html/tippy.umd.min.js"></script><link href="data_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="data_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Data objects for Tukelator">
@@ -99,20 +99,20 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">mark_obj</span><span class="op">)</span></span>
-<span><span class="co">#&gt;        id              name  course_id     course_name year  term mark grade</span></span>
-<span><span class="co">#&gt; 1 3798786  Jarrett, Jasmine MATHS-3015 Comm Skills III 2016 Sem 2   79     D</span></span>
-<span><span class="co">#&gt; 2 4476745  al-Qasim, Azzaam MATHS-3015 Comm Skills III 2016 Sem 2   86    HD</span></span>
-<span><span class="co">#&gt; 3 7242597 Denzmore, Keysean MATHS-3015 Comm Skills III 2016 Sem 2   77     D</span></span>
-<span><span class="co">#&gt; 4 8804412  Guerrero, Julian MATHS-3015 Comm Skills III 2016 Sem 2   90    HD</span></span>
-<span><span class="co">#&gt; 5 0664858   Deherrera, Kyle MATHS-3015 Comm Skills III 2016 Sem 2   65     C</span></span>
-<span><span class="co">#&gt; 6 6843453    Scott, Breanna MATHS-3015 Comm Skills III 2016 Sem 2   58     P</span></span>
-<span><span class="co">#&gt;    raa     source</span></span>
-<span><span class="co">#&gt; 1 &lt;NA&gt; peoplesoft</span></span>
-<span><span class="co">#&gt; 2 &lt;NA&gt; peoplesoft</span></span>
-<span><span class="co">#&gt; 3 &lt;NA&gt; peoplesoft</span></span>
-<span><span class="co">#&gt; 4 &lt;NA&gt; peoplesoft</span></span>
-<span><span class="co">#&gt; 5 &lt;NA&gt; peoplesoft</span></span>
-<span><span class="co">#&gt; 6 &lt;NA&gt; peoplesoft</span></span></code></pre></div>
+<span><span class="co">#&gt;        id           name  course_id course_name year  term mark grade raa</span></span>
+<span><span class="co">#&gt; 1 4547752 Xiong, Lindsay DISCP-1001    course-1 2020 Sem 1   69     C  NA</span></span>
+<span><span class="co">#&gt; 2 4547752 Xiong, Lindsay DISCP-2001    course-2 2021 Sem 1   67     C  NA</span></span>
+<span><span class="co">#&gt; 3 4547752 Xiong, Lindsay DISCP-2002    course-3 2021 Sem 2   70     C  NA</span></span>
+<span><span class="co">#&gt; 4 4547752 Xiong, Lindsay DISCP-3001    course-4 2022 Sem 1   65     C  NA</span></span>
+<span><span class="co">#&gt; 5 4547752 Xiong, Lindsay DISCP-3002    course-5 2022 Sem 1   56     P  NA</span></span>
+<span><span class="co">#&gt; 6 4547752 Xiong, Lindsay DISCP-3003    course-6 2022 Sem 2   68     C  NA</span></span>
+<span><span class="co">#&gt;       source</span></span>
+<span><span class="co">#&gt; 1 simulation</span></span>
+<span><span class="co">#&gt; 2 simulation</span></span>
+<span><span class="co">#&gt; 3 simulation</span></span>
+<span><span class="co">#&gt; 4 simulation</span></span>
+<span><span class="co">#&gt; 5 simulation</span></span>
+<span><span class="co">#&gt; 6 simulation</span></span></code></pre></div>
 </div>
 </section><section class="section level2"><h2 id="augmented-mark-object">augmented-mark-object<a class="anchor" aria-label="anchor" href="#augmented-mark-object"></a>
 </h2>
