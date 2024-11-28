@@ -12,7 +12,8 @@ get_examiners_report <- function(examiners_reports, examiner) {
   reports <- examiners_reports |>
     dplyr::filter(
       stringr::str_detect(course_cc, stringr::regex(examiner, ignore_case = TRUE)) | 
-      stringr::str_detect(course_name, stringr::regex(examiner, ignore_case = TRUE))
+      stringr::str_detect(course_name, stringr::regex(examiner, ignore_case = TRUE)) | 
+      stringr::str_detect(course_id, stringr::regex(examiner, ignore_case = TRUE))
     ) |>
     tidyr::pivot_longer(-course_name) |>
     tidyr::pivot_wider(

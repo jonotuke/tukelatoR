@@ -104,3 +104,18 @@
 #' }
 #' @source "University of Adelaide"
 "marks_dist"
+#' decision obj
+#'
+#' A dataset containing decisions from examiners' meeting
+#'
+#' @format A data frame with 21 rows and 6 variables:
+#' \describe{
+#' \item{time}{Time of decision}
+#' \item{course_id}{Course ID}
+#' \item{year}{Year of offering}
+#' \item{term}{Term of offering}
+#' \item{decision}{Final decision}
+#' \item{notes}{Notes}
+#' }
+#' @source "Simulated"
+"decision_obj"

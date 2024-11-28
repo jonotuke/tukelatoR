@@ -17,5 +17,5 @@ get_intersection_dt <- function(intersection_obj){
 }
 # pacman::p_load(tidyverse, targets)
 # data(mark_obj)
-# get_intersection(mark_obj, "MATHS-2202", "Sem 2", 2017, c("MATHS-1012")) |> 
+# get_intersection(mark_obj, "DISCP-3001", "Sem 1", 2024, c("DISCP-1001")) |> 
 #   get_intersection_dt() |> print()

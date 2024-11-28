@@ -1,7 +1,7 @@
 test_that("calc grade works", {
-  marks <- c("FNS", "WNF", "RP", "WF", 0:100)
+  marks <- c("FNS", "WNF", "RP", "WF", "NGP", 0:100)
   ans <- c(
-    "FNS", "WNF", "RP", "WF", "FNS",
+    "FNS", "WNF", "RP", "WF", "NGP","FNS",
     rep("F", 49), rep("P", 15), rep("C", 10), rep("D", 10), 
     rep("HD", 16)
   )

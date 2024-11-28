@@ -7,7 +7,7 @@ plot_assessment_outlier <- function(assessment_obj, course_id, year, term){
   dplyr::filter(.data$year == .env$year) |> 
   dplyr::filter(.data$term %in% .env$term) |> 
   dplyr::mutate(
-    name = forcats::fct_reorder(name, readr::parse_number(mark)), 
+    name = forcats::fct_reorder(name, get_mark(mark)), 
     grade = forcats::fct_rev(order_grade(grade))
   ) |> 
   dplyr::mutate(outlier = is_outlier(p), .by = id) |> 
@@ -16,7 +16,7 @@ plot_assessment_outlier <- function(assessment_obj, course_id, year, term){
   ggplot2::ggplot(ggplot2::aes(p, name, fill = assessment)) + 
   ggplot2::geom_point(pch = 21, size = 3) + 
   ggplot2::facet_grid(grade ~ ., scales = "free", space = "free") + 
-  ggplot2::geom_point(ggplot2::aes(readr::parse_number(mark) / 100), 
+  ggplot2::geom_point(ggplot2::aes(get_mark(mark) / 100), 
   col = "black", pch = 18, size = 3) + 
   ggplot2::theme_minimal() + 
   ggplot2::theme(legend.position = "none") + 

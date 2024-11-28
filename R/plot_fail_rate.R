@@ -23,7 +23,7 @@ plot_fail_rate <- function(
   dplyr::filter(.data$term %in% .env$term) |> 
   dplyr::summarise(
     N = dplyr::n(), 
-    F = sum(grade == "F"), 
+    F = sum(grade == "F", na.rm = TRUE), 
     RAA = sum(dplyr::between(mark, 45, 49), na.rm = TRUE), 
     .by = c(course_id, year, term)
   ) |> 
@@ -56,11 +56,10 @@ plot_fail_rate <- function(
   )
 }
 # pacman::p_load(tidyverse, targets)
-# library(tukelatoR)
-# example_marks
+# data(mark_obj)
 # plot_fail_rate(
-#   example_marks, 
-#   course_id = c("STATS-3001", "STATS-3006"),
-#   year = 2017, term = "Sem 1", 
+#   mark_obj, 
+#   course_id = c("DISCP-1001"),
+#   year = 2022, term = "Sem 1", 
 #   MS = 0, MSPR = 0.8, ASPR = 0.5
 # ) |> print()

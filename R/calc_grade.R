@@ -11,7 +11,7 @@
 #' calc_grade(c("FNS", "WNF", "RP", "WF", 0:100))
 calc_grade <- function(x){
   if(is.character(x)){
-    y <- readr::parse_integer(x, na = c("CN", "F", "FNS", "NFE", "RP", "WF", "WNF"))
+    y <- get_mark(x)
   } else {
     y <- x
     x <- as.character(x)

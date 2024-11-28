@@ -21,10 +21,12 @@ Imports:
     DT,
     forcats,
     fs,
+    GGally,
     ggplot2,
     gt,
     harrypotter,
     janitor,
+    lubridate,
     purrr,
     randomNames,
     readr,
@@ -35,7 +37,7 @@ Imports:
     tidyr,
     writexl
 Depends: 
-    R (>= 2.10)
+    R (>= 3.5)
 LazyData: true
 Suggests: 
     knitr,

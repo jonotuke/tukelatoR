@@ -42,10 +42,7 @@ parse_xlsx <- function(filename, year, term) {
   marks <- marks |>
     dplyr::mutate(
       grade = calc_grade(mark),
-      mark = readr::parse_number(
-        as.character(mark),
-        na = c("CN", "F", "FNS", "NFE", "RP", "WF", "WNF")
-      )
+      mark = get_mark(mark)
     )
   # Add year
   marks <- marks |>

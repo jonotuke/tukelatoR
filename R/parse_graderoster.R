@@ -62,10 +62,7 @@ parse_graderoster <- function(filename, year) {
   marks <- marks |>
     dplyr::mutate(
       grade = calc_grade(mark_grade_input),
-      mark = readr::parse_number(
-        as.character(mark_grade_input),
-        na = c("CN", "F", "FNS", "NFE", "RP", "WF", "WNF")
-      )
+      mark = get_mark(mark_grade_input)
     )
   # Add year
   marks <- marks |>

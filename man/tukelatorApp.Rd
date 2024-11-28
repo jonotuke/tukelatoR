@@ -4,7 +4,13 @@
 \alias{tukelatorApp}
 \title{tukelator app}
 \usage{
-tukelatorApp(mark_obj, assessment_obj, examiners_report, term = "Sem 1")
+tukelatorApp(
+  mark_obj,
+  assessment_obj,
+  examiners_report,
+  term = "Sem 1",
+  decision_file
+)
 }
 \arguments{
 \item{mark_obj}{mark object tibble}
@@ -14,6 +20,8 @@ tukelatorApp(mark_obj, assessment_obj, examiners_report, term = "Sem 1")
 \item{examiners_report}{examiners report object}
 
 \item{term}{selected term}
+
+\item{decision_file}{CSV file to store decisions}
 }
 \value{
 shiny app

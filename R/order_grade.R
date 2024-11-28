@@ -8,9 +8,9 @@ order_grade <- function(x){
   grade <- factor(
     x,
     levels = c(
-      "Unknown", "NFE", "RP","NGP",
+      "Unknown", "NFE", "RP",
       "PNG", "WF", "WNF",
-      "FNS", "F", "P",
+      "FNS", "F", "P", "NGP",
       "C", "D", "HD", "2A", "2B", "1ST"
     )
   )

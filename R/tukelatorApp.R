@@ -1,5 +1,5 @@
 utils::globalVariables(
-  c("course_id")
+  c("course_id", "decision_obj")
 )
 #' tukelator app
 #'
@@ -7,6 +7,7 @@ utils::globalVariables(
 #' @param term selected term
 #' @param assessment_obj assessment object tibble
 #' @param examiners_report examiners report object
+#' @param decision_file CSV file to store decisions
 #'
 #' @return shiny app
 #' @export
@@ -15,7 +16,7 @@ utils::globalVariables(
 #' \dontrun{
 #' tukelatorApp(example_marks)
 #' }
-tukelatorApp <- function(mark_obj, assessment_obj, examiners_report,term = "Sem 1") {
+tukelatorApp <- function(mark_obj, assessment_obj, examiners_report, term = "Sem 1", decision_file) {
   # Get years
   years <- unique(c(mark_obj$year, assessment_obj$year))
   # Get latest year
@@ -46,20 +47,40 @@ tukelatorApp <- function(mark_obj, assessment_obj, examiners_report,term = "Sem 
           selected = term
         ),
         shiny::checkboxInput(
-          inputId = "all_grades", 
-          label = "All grades", 
+          inputId = "all_grades",
+          label = "All grades",
           value = FALSE
         ),
+        shiny::hr(),
         shiny::checkboxInput(
           inputId = "hurdle",
-          label = "Focus on hurdle (49)", 
+          label = "Focus on hurdle (49)",
           value = FALSE
         ),
+        shiny::hr(),
         shiny::checkboxGroupInput(
           inputId = "assessment",
           label = "Assessment",
           choices = "A1",
           selected = "A1"
+        ),
+        shiny::hr(),
+        shiny::radioButtons(
+          inputId = "decision",
+          label = "Decision",
+          choices = c(
+            "Approve",
+            "Approve with scale",
+            "Approve with review",
+            "Flagged for discussion"
+          ),
+          selected = "Approve"
+        ),
+        shiny::textInput(inputId = "notes", "Comments"
+        ),
+        shiny::actionButton(
+          inputId = "submit",
+          label = "Submit"
         )
       ),
       shiny::mainPanel(
@@ -74,14 +95,14 @@ tukelatorApp <- function(mark_obj, assessment_obj, examiners_report,term = "Sem 
             gt::gt_output("marks_summary_gt"),
             DT::dataTableOutput("marks_dt")
           ),
-          # shiny::tabPanel(
-          #   "Assessment",
-          #   shiny::plotOutput("assessment_bp"),
-          #   shiny::plotOutput("assessment_lg")
-          # ),
           shiny::tabPanel(
-            "Examiner's report", 
-            shiny::textInput("cc", "Course coordinator OR Course name"), 
+            "Assessment",
+            shiny::plotOutput("assessment_bp"),
+            shiny::plotOutput("assessment_lg")
+          ),
+          shiny::tabPanel(
+            "Examiner's report",
+            shiny::textInput("cc", "Course coordinator OR Course name"),
             DT::dataTableOutput("examiners_report_dt")
           ),
           shiny::tabPanel(
@@ -93,16 +114,21 @@ tukelatorApp <- function(mark_obj, assessment_obj, examiners_report,term = "Sem 
             shiny::sliderInput("MSPR", "Expected medical pass rate", 0, 1, 0.8, 0.1)
           ),
           shiny::tabPanel(
-            "Students", 
-            gt::gt_output("student_gt")
+            "Examiners' meeting decisions",
+            DT::dataTableOutput("decision_dt")
           ),
           shiny::tabPanel(
-            "Compare courses", 
+            "Students",
+            DT::dataTableOutput("student_dt")
+          ),
+          shiny::tabPanel(
+            "Compare courses",
             shiny::selectizeInput(
               inputId = "other_course_ids",
               label = "Other Course IDs",
               choices = courses, multiple = TRUE
             ),
+            shiny::plotOutput("intersection_plot"),
             DT::dataTableOutput("intersection_dt")
           ),
           shiny::tabPanel(
@@ -125,16 +151,26 @@ tukelatorApp <- function(mark_obj, assessment_obj, examiners_report,term = "Sem 
     })
     output$marks_summary_gt <- gt::render_gt({
       shiny::req(input$course_id)
-      get_mark_summary_gt(augmented_mark_obj, input$course_id, input$term, input$year)
+      get_mark_summary_gt(
+        augmented_mark_obj,
+        input$course_id,
+        input$term, input$year
+      )
     })
     output$marks_dt <- DT::renderDataTable({
       shiny::req(input$course_id)
-      get_mark_tab(augmented_mark_obj, input$course_id, input$term, input$year, input$hurdle)
+      get_mark_tab(
+        augmented_mark_obj,
+        input$course_id,
+        input$term,
+        input$year,
+        input$hurdle
+      )
     })
     output$examiners_report_dt <- DT::renderDataTable({
       shiny::req(input$cc)
       get_examiners_report(examiners_report, input$cc)
-    }) 
+    })
     output$assessment_bp <- shiny::renderPlot({
       shiny::req(input$course_id)
       plot_assessment_bp(assessment_obj, input$assessment)
@@ -173,25 +209,52 @@ tukelatorApp <- function(mark_obj, assessment_obj, examiners_report,term = "Sem 
         input$term, input$marks_dt_rows_selected
       )
     })
-    output$student_gt <- gt::render_gt({
+    output$student_dt <- DT::renderDataTable({
       shiny::req(input$marks_dt_rows_selected)
-      get_student_tab(mark_obj, ids())
+      get_student_dt(mark_obj, ids())
     })
-    output$intersection_dt <- DT::renderDataTable({
-      shiny::req(input$other_course_ids)
+    intersection <- shiny::reactive({
       get_intersection(
         mark_obj, 
         input$course_id, 
         input$term, 
-        input$year,
+        input$year, 
         input$other_course_ids
       )
-    }) 
+    })
+    output$intersection_plot <- shiny::renderPlot({
+      shiny::req(input$other_course_ids)
+      plot_intersection(intersection())
+    })
+    output$intersection_dt <- DT::renderDataTable({
+      shiny::req(input$other_course_ids)
+      get_intersection_dt(intersection())
+    })
+    RV <- shiny::reactiveValues(data = NULL)
+    RV$decision_obj <- create_decision_obj(decision_file, term)
+    output$decision_dt <- DT::renderDataTable({
+      get_decision_dt(RV$decision_obj, input$year, input$term)
+    })
+    shiny::observeEvent(input$submit, {
+      RV$decision_obj <-
+        RV$decision_obj |>
+        add_decision(
+          course_id = input$course_id,
+          year = as.numeric(input$year),
+          term = input$term, decision = input$decision, 
+          notes = input$notes
+        )
+      readr::write_csv(RV$decision_obj, decision_file)
+    })
     output$debug <- shiny::renderPrint({
       print(stringr::str_glue("input$course_id: {input$course_id}"))
       print(stringr::str_glue("input$year: {input$year}"))
       print(stringr::str_glue("input$term: {input$term}"))
       print(stringr::str_glue("input$all_grades: {input$all_grades}"))
+      print(stringr::str_glue("input$decision: {input$decision}"))
+      print(stringr::str_glue("input$notes: {input$notes}"))
+      cat("decision_obj():\n")
+      print(utils::head(RV$decision_obj))
     })
   }
 
@@ -202,5 +265,10 @@ tukelatorApp <- function(mark_obj, assessment_obj, examiners_report,term = "Sem 
 # data(mark_obj)
 # data(assessment_obj)
 # data(examiners_reports)
-# tukelatorApp(mark_obj, assessment_obj, examiners_reports,term = "Sem 2") |> print()
-
+# tukelatorApp(
+#   mark_obj,
+#   assessment_obj,
+#   examiners_reports,
+#   term = "Sem 2",
+#   decision_file = "~/Desktop/decision.csv"
+# ) |> print()

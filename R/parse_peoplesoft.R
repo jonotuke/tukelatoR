@@ -25,7 +25,7 @@ parse_peoplesoft <- function(file){
   dplyr::mutate(
     course_id = stringr::str_glue("{subject}-{catalog}"),
     # Some marks are CN etc - set as NA
-    mark = readr::parse_number(mark, na = c("CN", "F", "FNS", "NFE", "RP", "WF", "WNF")), 
+    mark = get_mark(mark), 
     year = readr::parse_number(year), 
     term = readr::parse_number(term)
   ) |> 
@@ -36,4 +36,4 @@ parse_peoplesoft <- function(file){
     dplyr::filter(!is.na(mark))
 }
 # pacman::p_load(conflicted, tidyverse, targets)
-# parse_peoplesoft("inst/extdata/peoplesoft/2016-peoplesoft.xlsx") |> glimpse()
+# parse_peoplesoft("~/Dropbox/01-projects/2024-exam-marks/raw-data/peoplesoft/maths/2024-peoplesoft.xlsx") |> glimpse()
