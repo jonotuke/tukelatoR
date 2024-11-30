@@ -92,7 +92,11 @@ tukelatorApp <- function(mark_obj, assessment_obj, examiners_report, term = "Sem
           ),
           shiny::tabPanel(
             "Marks",
-            gt::gt_output("marks_summary_gt"),
+            shiny::fluidRow(
+              shiny::column(width = 6,gt::gt_output("marks_summary_gt")),
+              shiny::column(width = 3, shiny::plotOutput("diff_plot", height = "200px")),
+              shiny::column(width = 3, shiny::plotOutput("mark_plot", height = "200px"))
+              ),
             DT::dataTableOutput("marks_dt")
           ),
           shiny::tabPanel(
@@ -155,6 +159,24 @@ tukelatorApp <- function(mark_obj, assessment_obj, examiners_report, term = "Sem
         augmented_mark_obj,
         input$course_id,
         input$term, input$year
+      )
+    })
+    output$diff_plot <- shiny::renderPlot({
+      shiny::req(input$course_id)
+      plot_diff(
+        augmented_mark_obj, 
+        input$course_id,
+        input$year, 
+        input$term 
+      )
+    })
+    output$mark_plot <- shiny::renderPlot({
+      shiny::req(input$course_id)
+      plot_marks(
+        mark_obj, 
+        input$course_id,
+        input$year, 
+        input$term 
       )
     })
     output$marks_dt <- DT::renderDataTable({

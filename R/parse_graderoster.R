@@ -86,5 +86,5 @@ parse_graderoster <- function(filename, year) {
   marks
 }
 # pacman::p_load(tidyverse, targets)
-# file <- "~/Dropbox/01-projects/2024-exam-marks/raw-data/graderosters/2024-s2/COMP SCI 7201_4420_FIN.xlsx"
+# file <- "~/Dropbox/01-projects/2024-exam-marks/raw-data/graderosters/2024-t3/grade-roster-example.xlsx"
 # parse_graderoster(file, 2024) |> print()
